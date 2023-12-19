@@ -69,7 +69,8 @@ func (m *MIME) Is(expectedMIME string) bool {
 func newMIME(
 	mime, extension string,
 	detector magic.Detector,
-	children ...*MIME) *MIME {
+	children ...*MIME,
+) *MIME {
 	m := &MIME{
 		mime:      mime,
 		extension: extension,

@@ -11,6 +11,7 @@ const xmlDoc = `<?xml version="1.0" encoding="UTF-8"?>
   <heading>Reminder</heading>
   <body>Don't forget me this weekend!</body>
 </note>`
+
 const htmlDoc = `<!DOCTYPE html>
 <html>
   <head><!--[if lt IE 9]><script language="javascript" type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -24,6 +25,7 @@ const htmlDoc = `<!DOCTYPE html>
     <div class="container footer">さ</div>
   </body>
 </html>`
+
 const htmlDocWithIncorrectCharset = `<!DOCTYPE html>
 <!--
 Some comment
@@ -88,8 +90,8 @@ func TestFromPlain(t *testing.T) {
 
 func FuzzFromPlain(f *testing.F) {
 	samples := [][]byte{
-		[]byte{0xe6, 0xf8, 0xe5, 0x85, 0x85},
-		[]byte{0xe6, 0xf8, 0xe5},
+		{0xe6, 0xf8, 0xe5, 0x85, 0x85},
+		{0xe6, 0xf8, 0xe5},
 		[]byte("æøå"),
 	}
 
@@ -103,6 +105,7 @@ func FuzzFromPlain(f *testing.F) {
 		}
 	})
 }
+
 func FuzzFromHTML(f *testing.F) {
 	samples := []string{
 		`<meta charset="c">`,
@@ -125,6 +128,7 @@ func FuzzFromHTML(f *testing.F) {
 		}
 	})
 }
+
 func FuzzFromXML(f *testing.F) {
 	samples := []string{
 		`<?xml version="1.0" encoding="c"?>`,

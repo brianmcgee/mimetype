@@ -52,6 +52,7 @@ func ciPrefix(sigs ...[]byte) Detector {
 		return false
 	}
 }
+
 func ciCheck(sig, raw []byte) bool {
 	if len(raw) < len(sig)+1 {
 		return false
@@ -86,6 +87,7 @@ func xml(sigs ...xmlSig) Detector {
 		return false
 	}
 }
+
 func xmlCheck(sig xmlSig, raw []byte) bool {
 	raw = raw[:min(len(raw), 512)]
 
@@ -123,6 +125,7 @@ func markup(sigs ...[]byte) Detector {
 		return false
 	}
 }
+
 func markupCheck(sig, raw []byte) bool {
 	if len(raw) < len(sig)+1 {
 		return false

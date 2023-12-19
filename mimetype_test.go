@@ -275,7 +275,7 @@ func TestDetect(t *testing.T) {
 
 // This test generates the doc file containing the table with the supported MIMEs.
 func TestGenerateSupportedFormats(t *testing.T) {
-	f, err := os.OpenFile("supported_mimes.md", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	f, err := os.OpenFile("supported_mimes.md", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o644)
 	if err != nil {
 		t.Fatal(err)
 	}

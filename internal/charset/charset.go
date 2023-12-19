@@ -141,6 +141,7 @@ func FromXML(content []byte) string {
 	}
 	return FromPlain(content)
 }
+
 func fromXML(content []byte) string {
 	content = trimLWS(content)
 	dec := xml.NewDecoder(bytes.NewReader(content))
